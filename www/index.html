@@ -38,20 +38,66 @@
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
+    <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/assipi.min.css" />
+
+    <title>Assipi app</title>
 </head>
 
 <body>
     <div class="app">
-        <h1>PhoneGap</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
+        <!-- #HOME -->
+        <div data-role="page" id="home">
+            <div data-role="header" data-position="fixed">
+                <a href="#panelMenu" class="ui-btn ui-btn-left ui-btn-icon-notext ui-icon-bars ui-corner-all"></a>
+                <h1>Home</h1>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <img src="img/logo-assipi.png">
+                <p>I Am Now A Mobile Developer!! (for sure..)</p>
+                <a href="#login" class="ui-btn">Fai il login</a>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <h1>Footer</h1>
+            </div>
+        </div>
+
+        <!-- #login -->
+        <div data-role="page" id="login">
+            <div data-role="header" data-position="fixed">
+                <a href="#panelMenu" class="ui-btn ui-btn-left ui-btn-icon-notext ui-icon-bars ui-corner-all"></a>
+                <h1>Login</h1>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <p>Pagina per il login!!</p>
+                <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-rel="back" data-transition="slide">Home</a>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <h1>Footer</h1>
+            </div>
         </div>
     </div>
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+
+    <div data-role="panel" id="panelMenu" data-display="overlay" data-theme="a">
+        <h2>Panel Header</h2>
+        <p>You can close the panel by clicking outside the panel, pressing the Esc key or by swiping.</p>
+    </div>
+    <script type="text/javascript">
+        $(document).one('pagebeforecreate', function () {
+            $("body > [data-role='panel']").panel().enhanceWithin();
+        });
+    </script>
+
     <script type="text/javascript">
         app.initialize();
     </script>
